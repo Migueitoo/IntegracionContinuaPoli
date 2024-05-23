@@ -3,3 +3,49 @@ emplea una de las herramientas más valiosas para la integración continua: Dock
 través de esta herramienta, construir dos contenedores los cuales deben estar comunicados
 entre sí.
 
+# Proyecto Docker Redis
+
+Este proyecto contiene un Dockerfile para crear un contenedor con Redis.
+
+## Prerrequisitos
+
+Asegúrate de tener Docker instalado en tu máquina.
+
+- **[Docker Desktop para Windows/Mac](https://www.docker.com/get-started)**
+- **[Docker para Linux](https://docs.docker.com/engine/install/)**
+
+## Pasos para ejecutar
+
+1. Clona este repositorio:
+
+    ```sh
+    git clone https://github.com/Migueitoo/IntegracionContinuaPoli.git
+    cd DockerBd
+    ```
+
+2. Construye la imagen de Docker:
+
+    ```sh
+    docker build -t my-redis .
+    ```
+
+3. Ejecuta el contenedor de Redis:
+
+    ```sh
+    docker run -d -p 6381:6379 --name my-redis-container --privileged my-redis
+    ```
+
+## Notas
+
+Si encuentras algún problema al ejecutar el contenedor, verifica los logs del contenedor con:
+
+    ```sh
+    docker logs my-redis-container
+    ```
+
+Para detener y eliminar el contenedor, utiliza:
+
+    ```sh
+    docker stop my-redis-container
+    docker rm my-redis-container
+    ```
